@@ -908,18 +908,18 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="https://api.web3forms.com/submit" method="POST"
+          <form action=""
  class="form" data-form>
 
             <div class="input-wrapper">
-                <input type="hidden" name="access_key" value="b5e51684-2188-4f07-99e2-0123148e0dae"> 
+                 
 
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" id="fullname" class="form-input" placeholder="Full name" required data-form-input>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" id="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea id="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
@@ -945,7 +945,9 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
   <!--
     - ionicon link
   -->
@@ -977,6 +979,45 @@ localStorage.setItem("theme", "light");
 }
 
 </script>
+  <script type="text/javascript" charset="utf-8">
+    const form = document.querySelector("form");
+const fullname = document.getElementById("fullname");
+const email = document.getElementById("email");
+const message = document.getElementById("message");
+
+
+function sendEmail() {
+const bodyMessage = 'Full name: ${fullname.value}<br> Email: ${email.value} <br> Message: ${message.value}';
+    Email.send({
+        SecureToken: "a15581e1-ad2c-43b0-836c-41666988b043",
+        To: 'Denisleteipan45@gmail.com',
+        From: "Denisleteipan45@gmail.com",
+        Subject: subject.value,
+        Body: bodyMessage
+    }).then(
+        message => {
+            if (message == "OK") {
+                 Swal.fire({
+                     title: "Success",
+text: "Message sent successfully!",
+icon: "success"
+                 });
+                 
+            }
+        }
+    );
+}
+
+
+form.addEventlistener("submit"), (e) => {
+    e.preventDefault();
+
+    sendEmail();
+form.reset();
+return false;
+
+          }
+  </script>
 
 </body>
 
