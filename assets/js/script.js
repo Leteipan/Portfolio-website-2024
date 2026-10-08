@@ -1,159 +1,950 @@
-'use strict';
+"use strict";
+
+/* =========================================================
+   DENIS LETEIPAN PORTFOLIO
+   Modern 2026 JavaScript
+========================================================= */
 
 
+/* =========================================================
+   HELPERS
+========================================================= */
 
-// element toggle function
-const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+const $ = (selector, parent = document) =>
+  parent.querySelector(selector);
 
-
-
-// sidebar variables
-const sidebar = document.querySelector("[data-sidebar]");
-const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-
-// sidebar toggle functionality for mobile
-sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
+const $$ = (selector, parent = document) =>
+  [...parent.querySelectorAll(selector)];
 
 
+/* =========================================================
+   DOM ELEMENTS
+========================================================= */
 
-// testimonials variables
-const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
-const modalContainer = document.querySelector("[data-modal-container]");
-const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
-const overlay = document.querySelector("[data-overlay]");
+const html = document.documentElement;
 
-// modal variable
-const modalImg = document.querySelector("[data-modal-img]");
-const modalTitle = document.querySelector("[data-modal-title]");
-const modalText = document.querySelector("[data-modal-text]");
+const sidebar = $("[data-sidebar]");
+const sidebarButton = $("[data-sidebar-btn]");
 
-// modal toggle function
-const testimonialsModalFunc = function () {
-  modalContainer.classList.toggle("active");
-  overlay.classList.toggle("active");
-}
+const navigationLinks = $$("[data-nav-link]");
+const navigationTargets = $$("[data-nav-target]");
+const pages = $$("[data-page]");
 
-// add click event to all modal items
-for (let i = 0; i < testimonialsItem.length; i++) {
+const themeToggle = $("#theme-toggle");
+const themeIcon = $("#theme-icon");
 
-  testimonialsItem[i].addEventListener("click", function () {
+const filterButtons = $$("[data-filter-btn]");
+const filterItems = $$("[data-filter-item]");
+const projectCount = $("#project-count");
 
-    modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
-    modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-testimonials-title]").innerHTML;
-    modalText.innerHTML = this.querySelector("[data-testimonials-text]").innerHTML;
+const form = $("#contact-form");
+const formInputs = $$("[data-form-input]");
+const formButton = $("#form-submit");
 
-    testimonialsModalFunc();
+const testimonialItems = $$("[data-testimonial-item]");
+const modalContainer = $("[data-modal-container]");
+const modalCloseButton = $("[data-modal-close-btn]");
+const modalOverlay = $("[data-overlay]");
 
-  });
-
-}
-
-// add click event to modal close button
-modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+const modalAvatar = $("#modal-avatar");
+const modalTitle = $("#modal-title");
+const modalMessage = $("#modal-message");
 
 
+/* =========================================================
+   SAFE EVENT HELPER
+========================================================= */
 
-// custom select variables
-const select = document.querySelector("[data-select]");
-const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
-const filterBtn = document.querySelectorAll("[data-filter-btn]");
+const on = (element, event, handler, options) => {
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+  if (!element) {
+    return;
+  }
 
-// add event in all select items
-for (let i = 0; i < selectItems.length; i++) {
-  selectItems[i].addEventListener("click", function () {
+  element.addEventListener(
+    event,
+    handler,
+    options
+  );
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
-    filterFunc(selectedValue);
+};
 
-  });
-}
 
-// filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
-const filterFunc = function (selectedValue) {
+on(
+  sidebarButton,
+  "click",
+  () => {
 
-  for (let i = 0; i < filterItems.length; i++) {
-
-    if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
-    } else {
-      filterItems[i].classList.remove("active");
+    if (!sidebar) {
+      return;
     }
+
+    const isOpen =
+      sidebar.classList.toggle("active");
+
+    sidebarButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+  }
+);
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(pageName) {
+
+  if (!pageName) {
+    return;
+  }
+
+  pages.forEach((page) => {
+
+    const isCurrentPage =
+      page.dataset.page === pageName;
+
+    page.classList.toggle(
+      "active",
+      isCurrentPage
+    );
+
+  });
+
+
+  navigationLinks.forEach((link) => {
+
+    const isCurrentLink =
+      link.dataset.navLink === pageName;
+
+    link.classList.toggle(
+      "active",
+      isCurrentLink
+    );
+
+  });
+
+
+  /*
+    Close mobile sidebar after navigation.
+  */
+
+  if (
+    sidebar &&
+    window.innerWidth <= 960
+  ) {
+
+    sidebar.classList.remove(
+      "active"
+    );
+
+    if (sidebarButton) {
+
+      sidebarButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+  }
+
+
+  /*
+    Keep every page navigation at the top.
+  */
+
+  window.scrollTo({
+    top: 0,
+    behavior:
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+        ? "auto"
+        : "smooth"
+  });
+
+}
+
+
+/*
+  Desktop + mobile navigation
+*/
+
+navigationLinks.forEach((link) => {
+
+  on(
+    link,
+    "click",
+    () => {
+
+      const pageName =
+        link.dataset.navLink;
+
+      showPage(pageName);
+
+    }
+  );
+
+});
+
+
+/*
+  Hero CTA buttons
+*/
+
+navigationTargets.forEach((button) => {
+
+  on(
+    button,
+    "click",
+    () => {
+
+      const pageName =
+        button.dataset.navTarget;
+
+      showPage(pageName);
+
+    }
+  );
+
+});
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const THEME_STORAGE_KEY =
+  "leteipan-theme";
+
+
+function getSystemTheme() {
+
+  return window.matchMedia(
+    "(prefers-color-scheme: light)"
+  ).matches
+    ? "light"
+    : "dark";
+
+}
+
+
+function getSavedTheme() {
+
+  try {
+
+    return localStorage.getItem(
+      THEME_STORAGE_KEY
+    );
+
+  } catch (error) {
+
+    return null;
 
   }
 
 }
 
-// add event in all filter button items for large screen
-let lastClickedBtn = filterBtn[0];
 
-for (let i = 0; i < filterBtn.length; i++) {
+function saveTheme(theme) {
 
-  filterBtn[i].addEventListener("click", function () {
+  try {
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
+    localStorage.setItem(
+      THEME_STORAGE_KEY,
+      theme
+    );
 
-    lastClickedBtn.classList.remove("active");
-    this.classList.add("active");
-    lastClickedBtn = this;
+  } catch (error) {
 
-  });
+    /*
+      Storage can fail in privacy-restricted
+      browser contexts. The theme still works
+      for the current session.
+    */
+
+  }
 
 }
 
 
+function setTheme(theme) {
 
-// contact form variables
-const form = document.querySelector("[data-form]");
-const formInputs = document.querySelectorAll("[data-form-input]");
-const formBtn = document.querySelector("[data-form-btn]");
+  const validTheme =
+    theme === "light"
+      ? "light"
+      : "dark";
 
-// add event to all form input field
-for (let i = 0; i < formInputs.length; i++) {
-  formInputs[i].addEventListener("input", function () {
+  html.dataset.theme =
+    validTheme;
 
-    // check form validation
-    if (form.checkValidity()) {
-      formBtn.removeAttribute("disabled");
-    } else {
-      formBtn.setAttribute("disabled", "");
+
+  if (themeIcon) {
+
+    themeIcon.setAttribute(
+      "name",
+      validTheme === "light"
+        ? "sunny-outline"
+        : "moon-outline"
+    );
+
+  }
+
+
+  if (themeToggle) {
+
+    const isLight =
+      validTheme === "light";
+
+    themeToggle.setAttribute(
+      "aria-pressed",
+      String(isLight)
+    );
+
+    themeToggle.setAttribute(
+      "aria-label",
+      isLight
+        ? "Switch to dark theme"
+        : "Switch to light theme"
+    );
+
+    themeToggle.setAttribute(
+      "title",
+      isLight
+        ? "Switch to dark theme"
+        : "Switch to light theme"
+    );
+
+  }
+
+
+  saveTheme(validTheme);
+
+}
+
+
+/*
+  Initialise theme immediately.
+*/
+
+const storedTheme =
+  getSavedTheme();
+
+setTheme(
+  storedTheme || getSystemTheme()
+);
+
+
+/*
+  Toggle theme.
+*/
+
+on(
+  themeToggle,
+  "click",
+  () => {
+
+    const currentTheme =
+      html.dataset.theme || "dark";
+
+    const nextTheme =
+      currentTheme === "light"
+        ? "dark"
+        : "light";
+
+    setTheme(nextTheme);
+
+  }
+);
+
+
+/* =========================================================
+   SYSTEM THEME CHANGE
+========================================================= */
+
+const colorSchemeQuery =
+  window.matchMedia(
+    "(prefers-color-scheme: light)"
+  );
+
+
+on(
+  colorSchemeQuery,
+  "change",
+  (event) => {
+
+    /*
+      Only follow the operating system when
+      the visitor has never manually selected
+      a theme.
+    */
+
+    if (!getSavedTheme()) {
+
+      setTheme(
+        event.matches
+          ? "light"
+          : "dark"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PORTFOLIO FILTER
+========================================================= */
+
+function updateProjectCount(count) {
+
+  if (!projectCount) {
+    return;
+  }
+
+  projectCount.textContent =
+    `${count} ${
+      count === 1
+        ? "project"
+        : "projects"
+    }`;
+
+}
+
+
+function filterProjects(category = "all") {
+
+  let visibleCount = 0;
+
+
+  filterItems.forEach((item) => {
+
+    const itemCategory =
+      (
+        item.dataset.category ||
+        ""
+      ).toLowerCase();
+
+
+    const shouldShow =
+      category === "all" ||
+      itemCategory === category;
+
+
+    item.classList.toggle(
+      "is-hidden",
+      !shouldShow
+    );
+
+
+    if (shouldShow) {
+      visibleCount += 1;
     }
 
   });
+
+
+  updateProjectCount(
+    visibleCount
+  );
+
+
+  filterButtons.forEach((button) => {
+
+    const buttonCategory =
+      (
+        button.dataset.filterBtn ||
+        ""
+      ).toLowerCase();
+
+
+    const isActive =
+      buttonCategory === category;
+
+
+    button.classList.toggle(
+      "active",
+      isActive
+    );
+
+
+    button.setAttribute(
+      "aria-selected",
+      String(isActive)
+    );
+
+  });
+
 }
 
 
+/*
+  Filter button events.
+*/
 
-// page navigation variables
-const navigationLinks = document.querySelectorAll("[data-nav-link]");
-const pages = document.querySelectorAll("[data-page]");
+filterButtons.forEach((button) => {
 
-// add event to all nav link
-for (let i = 0; i < navigationLinks.length; i++) {
-  navigationLinks[i].addEventListener("click", function () {
+  on(
+    button,
+    "click",
+    () => {
 
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
+      const category =
+        (
+          button.dataset.filterBtn ||
+          "all"
+        ).toLowerCase();
+
+      filterProjects(category);
+
+    }
+  );
+
+});
+
+
+/*
+  Initialise portfolio.
+*/
+
+filterProjects("all");
+
+
+/* =========================================================
+   TESTIMONIAL MODAL
+========================================================= */
+
+let activeTestimonial = null;
+
+
+function openTestimonial(item) {
+
+  if (
+    !item ||
+    !modalContainer
+  ) {
+    return;
+  }
+
+
+  activeTestimonial =
+    item;
+
+
+  const name =
+    item.dataset.name ||
+    "Client";
+
+  const avatar =
+    item.dataset.avatar ||
+    "./assets/images/avatar-1.png";
+
+  const message =
+    item.dataset.message ||
+    "";
+
+
+  if (modalTitle) {
+    modalTitle.textContent =
+      name;
+  }
+
+
+  if (modalAvatar) {
+
+    modalAvatar.src =
+      avatar;
+
+    modalAvatar.alt =
+      name;
+
+  }
+
+
+  if (modalMessage) {
+
+    modalMessage.textContent =
+      message;
+
+  }
+
+
+  modalContainer.classList.add(
+    "active"
+  );
+
+  modalContainer.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
+
+
+  if (modalCloseButton) {
+
+    window.requestAnimationFrame(
+      () => modalCloseButton.focus()
+    );
+
+  }
+
+}
+
+
+function closeTestimonial() {
+
+  if (!modalContainer) {
+    return;
+  }
+
+
+  modalContainer.classList.remove(
+    "active"
+  );
+
+  modalContainer.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+
+  /*
+    Return keyboard focus to the
+    testimonial which opened the modal.
+  */
+
+  if (activeTestimonial) {
+
+    activeTestimonial.focus();
+
+  }
+
+
+  activeTestimonial =
+    null;
+
+}
+
+
+testimonialItems.forEach((item) => {
+
+  on(
+    item,
+    "click",
+    () => openTestimonial(item)
+  );
+
+});
+
+
+on(
+  modalCloseButton,
+  "click",
+  closeTestimonial
+);
+
+
+on(
+  modalOverlay,
+  "click",
+  closeTestimonial
+);
+
+
+/* =========================================================
+   MODAL KEYBOARD ACCESSIBILITY
+========================================================= */
+
+on(
+  document,
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Escape" &&
+      modalContainer &&
+      modalContainer.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeTestimonial();
+
+      return;
+
+    }
+
+
+    /*
+      Basic focus trap inside the modal.
+    */
+
+    if (
+      event.key !== "Tab" ||
+      !modalContainer ||
+      !modalContainer.classList.contains(
+        "active"
+      )
+    ) {
+      return;
+    }
+
+
+    const focusableElements =
+      $$(
+        'button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])',
+        modalContainer
+      ).filter(
+        (element) =>
+          !element.hasAttribute("disabled")
+      );
+
+
+    if (!focusableElements.length) {
+      return;
+    }
+
+
+    const firstElement =
+      focusableElements[0];
+
+    const lastElement =
+      focusableElements[
+        focusableElements.length - 1
+      ];
+
+
+    if (
+      event.shiftKey &&
+      document.activeElement === firstElement
+    ) {
+
+      event.preventDefault();
+
+      lastElement.focus();
+
+    } else if (
+      !event.shiftKey &&
+      document.activeElement === lastElement
+    ) {
+
+      event.preventDefault();
+
+      firstElement.focus();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+function validateContactForm() {
+
+  if (!formButton) {
+    return;
+  }
+
+
+  if (!form) {
+
+    formButton.disabled =
+      true;
+
+    return;
+
+  }
+
+
+  /*
+    Native browser validation handles:
+    - required
+    - email
+    - type validation
+  */
+
+  formButton.disabled =
+    !form.checkValidity();
+
+}
+
+
+formInputs.forEach((input) => {
+
+  on(
+    input,
+    "input",
+    validateContactForm
+  );
+
+  on(
+    input,
+    "blur",
+    validateContactForm
+  );
+
+});
+
+
+if (form) {
+
+  validateContactForm();
+
+
+  on(
+    form,
+    "submit",
+    (event) => {
+
+      /*
+        Run validation before allowing
+        Formspree to receive the form.
+      */
+
+      if (!form.checkValidity()) {
+
+        event.preventDefault();
+
+        form.reportValidity();
+
+        validateContactForm();
+
       }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   FORM SUBMIT STATE
+========================================================= */
+
+if (form) {
+
+  on(
+    form,
+    "submit",
+    () => {
+
+      /*
+        Allow the native submission to happen,
+        then temporarily update the button.
+      */
+
+      if (!formButton) {
+        return;
+      }
+
+      formButton.disabled =
+        true;
+
+      const buttonText =
+        $("span", formButton);
+
+      if (buttonText) {
+
+        buttonText.textContent =
+          "Sending...";
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   MOBILE SIDEBAR / RESPONSIVE CLEANUP
+========================================================= */
+
+on(
+  window,
+  "resize",
+  () => {
+
+    /*
+      Desktop doesn't need the expandable
+      sidebar state.
+    */
+
+    if (
+      window.innerWidth > 960 &&
+      sidebar
+    ) {
+
+      sidebar.classList.remove(
+        "active"
+      );
+
+      if (sidebarButton) {
+
+        sidebarButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
     }
 
-  });
-}
+  }
+);
+
+
+/* =========================================================
+   DOCUMENT VISIBILITY
+========================================================= */
+
+on(
+  document,
+  "visibilitychange",
+  () => {
+
+    /*
+      No expensive processing while the tab
+      isn't visible. This is intentionally
+      lightweight and future-proof.
+    */
+
+    if (
+      document.visibilityState ===
+      "hidden"
+    ) {
+
+      /*
+        Reserved for future analytics or
+        background state handling.
+      */
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INITIALISE PAGE
+========================================================= */
+
+showPage("about");
