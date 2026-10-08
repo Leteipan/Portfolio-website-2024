@@ -1,407 +1,984 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>leteipan Personal Portfolio</title>
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <meta
+    name="description"
+    content="Denis Leteipan is a full-stack software engineer and cybersecurity specialist building secure, scalable web and mobile applications."
+  >
 
-  <!--
-    - google font link
-  -->
+  <meta
+    name="theme-color"
+    content="#080c12"
+  >
+
+  <title>Denis Leteipan | Full-Stack Software Engineer</title>
+
+  <link
+    rel="shortcut icon"
+    href="./assets/images/logo.ico"
+    type="image/x-icon"
+  >
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Styles -->
+  <link
+    rel="stylesheet"
+    href="./assets/css/style.css"
+  >
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
 
-  <main>
+  <main class="site-shell">
 
-    <!--
-      - #SIDEBAR
-    -->
+    <!-- =======================================================
+         SIDEBAR
+    ======================================================== -->
 
     <aside class="sidebar" data-sidebar>
 
-      <div class="sidebar-info">
+      <div class="sidebar-top">
 
-        <figure class="avatar-box ">
-          <img style="border-radius:50%;"src="./assets/images/profile-img.jpg" alt="Denis leteipan" width="80">
-        </figure>
+        <div class="profile-block">
 
-        <div class="info-content">
-          <h1 class="name" title="Denis leteipan">Denis leteipan</h1>
+          <div class="avatar-wrap">
+            <img
+              src="./assets/images/profile-img.jpg"
+              alt="Denis Leteipan"
+              width="150"
+              height="150"
+            >
 
-          <p class="title">Software engineer</p>
+            <span
+              class="status-dot"
+              aria-label="Available"
+              title="Available"
+            ></span>
+          </div>
+
+          <div class="profile-copy">
+
+            <p class="eyebrow">SOFTWARE ENGINEER</p>
+
+            <h1>Denis Leteipan</h1>
+
+            <p class="profile-role">
+              Full-Stack · Mobile · Security
+            </p>
+
+          </div>
+
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+        <button
+          class="sidebar-toggle"
+          type="button"
+          data-sidebar-btn
+          aria-expanded="false"
+          aria-controls="sidebar-details"
+        >
+          <span>Contact details</span>
 
-          <ion-icon name="chevron-down"></ion-icon>
+          <ion-icon name="chevron-down-outline"></ion-icon>
         </button>
 
       </div>
 
-      <div class="sidebar-info_more">
+      <div
+        class="sidebar-details"
+        id="sidebar-details"
+      >
 
-        <div class="separator"></div>
+        <div class="sidebar-divider"></div>
 
-        <ul class="contacts-list">
+        <div class="contact-stack">
 
-          <li class="contact-item">
-
-            <div class="icon-box">
+          <a
+            class="contact-row"
+            href="mailto:denisleteipan45@gmail.com"
+          >
+            <span class="contact-icon">
               <ion-icon name="mail-outline"></ion-icon>
-            </div>
+            </span>
 
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
+            <span class="contact-copy">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">
+                denisleteipan45@gmail.com
+              </span>
+            </span>
+          </a>
 
-              <a href="mailto:denisleteipan45@gmail.com " class="contact-link">denisleteipan45@gmail.com </a>
-            </div>
+          <a
+            class="contact-row"
+            href="tel:+254713298398"
+          >
+            <span class="contact-icon">
+              <ion-icon name="call-outline"></ion-icon>
+            </span>
 
-          </li>
+            <span class="contact-copy">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">
+                +254 713 298 398
+              </span>
+            </span>
+          </a>
 
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+254713298398" class="contact-link">+254 (713) 298-398</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
+          <div class="contact-row">
+            <span class="contact-icon">
               <ion-icon name="location-outline"></ion-icon>
-            </div>
+            </span>
 
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
+            <span class="contact-copy">
+              <span class="contact-label">Based in</span>
+              <span class="contact-value">
+                Nairobi, Kenya
+              </span>
+            </span>
+          </div>
 
-              <address>Kitengela, Kajiado, Kenya</address>
-            </div>
+        </div>
 
-          </li>
+        <div class="sidebar-divider"></div>
 
-        </ul>
+        <div class="social-heading">Connect</div>
 
-        <div class="separator"></div>
+        <div class="social-list">
 
-        <ul class="social-list">
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/denis-leteipan-487725262"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <ion-icon name="logo-linkedin"></ion-icon>
+          </a>
 
-          
- <li class="social-item">
-            <a href="https://www.linkedin.com/in/denis-leteipan-487725262?" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-          <li class="social-item">
-            <a href="https://twitter.com/Denis_leteipan" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
+          <a
+            class="social-link"
+            href="https://twitter.com/Denis_leteipan"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
 
-          <li class="social-item">
-            <a href="https://github.com/Leteipan" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
+          <a
+            class="social-link"
+            href="https://github.com/Leteipan"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <ion-icon name="logo-github"></ion-icon>
+          </a>
 
-        </ul>
+        </div>
+
+        <div class="sidebar-footer">
+          <span>Built with curiosity.</span>
+          <span>© 2026 Denis Leteipan</span>
+        </div>
 
       </div>
 
     </aside>
 
 
-
-
-
-    <!--
-      - #main-content
-    -->
+    <!-- =======================================================
+         MAIN CONTENT
+    ======================================================== -->
 
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
+      <!-- =====================================================
+           NAVBAR
+      ====================================================== -->
 
-      <nav class="navbar">
+      <nav
+        class="navbar"
+        aria-label="Primary navigation"
+      >
 
-        <ul class="navbar-list">
- <img src="assets/images/moon.png" id="icon">
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
+        <div class="navbar-inner">
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
+          <div class="mobile-brand">
+            <span class="mobile-brand-mark">DL</span>
+          </div>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
+          <div class="navbar-links">
 
+            <button
+              class="navbar-link active"
+              type="button"
+              data-nav-link="about"
+            >
+              <ion-icon name="person-outline"></ion-icon>
+              <span>About</span>
+            </button>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
+            <button
+              class="navbar-link"
+              type="button"
+              data-nav-link="resume"
+            >
+              <ion-icon name="document-text-outline"></ion-icon>
+              <span>Resume</span>
+            </button>
 
-        </ul>
+            <button
+              class="navbar-link"
+              type="button"
+              data-nav-link="portfolio"
+            >
+              <ion-icon name="grid-outline"></ion-icon>
+              <span>Work</span>
+            </button>
+
+            <button
+              class="navbar-link"
+              type="button"
+              data-nav-link="contact"
+            >
+              <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+              <span>Contact</span>
+            </button>
+
+          </div>
+
+          <button
+            class="theme-toggle"
+            id="theme-toggle"
+            type="button"
+            aria-label="Toggle colour theme"
+            aria-pressed="false"
+          >
+            <ion-icon
+              name="moon-outline"
+              id="theme-icon"
+            ></ion-icon>
+          </button>
+
+        </div>
 
       </nav>
 
 
+      <!-- =====================================================
+           ABOUT
+      ====================================================== -->
+
+      <article
+        class="page about-page active"
+        data-page="about"
+      >
+
+        <!-- HERO -->
+
+        <section class="hero-section">
+
+          <div class="hero-copy">
+
+            <p class="section-kicker">
+              FULL-STACK SOFTWARE ENGINEER
+            </p>
+
+            <h2 class="hero-title">
+              I build software that
+              <span>solves real problems.</span>
+            </h2>
+
+            <p class="hero-description">
+              I design and engineer secure web and mobile products
+              that turn complicated business needs into useful,
+              reliable digital experiences.
+            </p>
+
+            <div class="hero-actions">
+
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-nav-target="portfolio"
+              >
+                View my work
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </button>
+
+              <button
+                class="btn btn-secondary"
+                type="button"
+                data-nav-target="contact"
+              >
+                Let's talk
+              </button>
 
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-          <section class="about-text">
-          <p>
-            I am a Nairobi-based Full-Stack Software Engineer and Cybersecurity Specialist specializing in architecting secure, scalable web and mobile applications. I combine modern development frameworks with robust defensive security strategies to build resilient digital systems that protect core business infrastructure from unauthorized access and cyber threats.
-          </p>
-
-          <p>
-            My focus is on engineering highly functional, production-ready software systems integrated with intuitive, user-centric interfaces. By bridging clean, maintainable code with professional UI/UX workflows, I transform complex organizational needs into streamlined digital experiences that drive business efficiency and establish a definitive brand identity.
-          </p>
-        </section>
-
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">My Expertee!</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">UI/UX design</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Penetration testing</h4>
-
-                <p class="service-item-text">
-                  Discover your weakness before Hackers do, let's ascertain the security of your system
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure style="border-radius:50%;" class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Rachel Tuleto" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Rachel</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Denis is a skilled competence individual. We were very pleased with the work done. he is very concerned about the needs of client.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure style="border-radius:50%;"class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Raphael" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Raphael</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I am really impressed by the quality of services I received from leteipan. You were right on schedule, charged reasonable prices, was professional and courteous in dealings, and delivered items well before time. I have got a good e-commerce site for my products. My revenue has increased because of you and I will definitely use your services again.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure style="border-radius:50%;"class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I just checked the app. WELL DONE - you made my day!!! Looks really good!
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure style="border-radius:50%;"class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    I wanted to take a moment to thank you for the services you provided. You have been a pleasure to work with, professional and timely. The only delay in work that we have experienced has been due to our own lack of organization managing our projects, not yours. Job well done and I hope we can continue to grow together.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure style="border-radius:50%;" class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
             </div>
 
-            <div class="modal-content">
+            <div class="hero-meta">
+              <span>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Web
+              </span>
 
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-              <div data-modal-text>
+              <span>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Mobile
+              </span>
+
+              <span>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                APIs
+              </span>
+
+              <span>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Security
+              </span>
+            </div>
+
+          </div>
+
+          <div class="hero-panel">
+
+            <div class="hero-panel-top">
+
+              <span class="hero-panel-label">
+                CURRENT FOCUS
+              </span>
+
+              <span class="hero-panel-status">
+                <span></span>
+                BUILDING
+              </span>
+
+            </div>
+
+            <div class="hero-code-card">
+
+              <div class="code-header">
+                <div class="code-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <span>solution.js</span>
+              </div>
+
+              <div class="code-body">
+                <span class="code-line">
+                  <small>01</small>
+                  <b>const</b>
+                  <em>problem</em>
+                  =
+                  <strong>"complex"</strong>;
+                </span>
+
+                <span class="code-line">
+                  <small>02</small>
+                  <b>const</b>
+                  <em>solution</em>
+                  =
+                  <strong>build()</strong>;
+                </span>
+
+                <span class="code-line">
+                  <small>03</small>
+                  <b>return</b>
+                  <strong>impact;</strong>
+                </span>
+              </div>
+
+            </div>
+
+            <div class="hero-panel-bottom">
+
+              <div>
+                <strong>Software</strong>
+                <span>Built around the user</span>
+              </div>
+
+              <ion-icon name="arrow-up-outline"></ion-icon>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="content-section">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">ABOUT</p>
+              <h3>Building useful software, not just interfaces.</h3>
+            </div>
+
+          </div>
+
+          <div class="about-grid">
+
+            <div class="about-copy">
+
+              <p>
+                I am a Nairobi-based full-stack software engineer
+                and cybersecurity specialist focused on building
+                secure, scalable web and mobile applications.
+              </p>
+
+              <p>
+                My work connects engineering, product thinking and
+                user experience. I enjoy taking a messy requirement,
+                understanding what actually matters, and turning it
+                into software that people can confidently use.
+              </p>
+
+              <p>
+                From frontend interfaces and mobile applications to
+                backend services, APIs, databases and security,
+                I approach the product as one complete system.
+              </p>
+
+            </div>
+
+            <div class="about-highlights">
+
+              <div class="highlight-card">
+                <span class="highlight-number">01</span>
+                <div>
+                  <strong>Product thinking</strong>
+                  <p>
+                    Start with the problem, users and desired outcome.
+                  </p>
+                </div>
+              </div>
+
+              <div class="highlight-card">
+                <span class="highlight-number">02</span>
+                <div>
+                  <strong>Full-stack ownership</strong>
+                  <p>
+                    Frontend, backend, APIs, data and deployment.
+                  </p>
+                </div>
+              </div>
+
+              <div class="highlight-card">
+                <span class="highlight-number">03</span>
+                <div>
+                  <strong>Security by design</strong>
+                  <p>
+                    Build with resilience, access control and security
+                    in mind from the start.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="content-section">
+
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">WHAT I DO</p>
+              <h3>From idea to working software.</h3>
+            </div>
+          </div>
+
+          <div class="services-grid">
+
+            <article class="service-card">
+
+              <div class="service-number">01</div>
+
+              <div class="service-icon">
+                <ion-icon name="color-palette-outline"></ion-icon>
+              </div>
+
+              <h4>UI/UX Design</h4>
+
+              <p>
+                Clean, intuitive interfaces designed around
+                real users and real workflows.
+              </p>
+
+              <div class="service-tags">
+                <span>UX</span>
+                <span>UI</span>
+                <span>Prototyping</span>
+              </div>
+
+            </article>
+
+            <article class="service-card">
+
+              <div class="service-number">02</div>
+
+              <div class="service-icon">
+                <ion-icon name="code-slash-outline"></ion-icon>
+              </div>
+
+              <h4>Web Development</h4>
+
+              <p>
+                Responsive web applications built for performance,
+                maintainability and scale.
+              </p>
+
+              <div class="service-tags">
+                <span>Frontend</span>
+                <span>Backend</span>
+                <span>APIs</span>
+              </div>
+
+            </article>
+
+            <article class="service-card">
+
+              <div class="service-number">03</div>
+
+              <div class="service-icon">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <h4>Mobile Applications</h4>
+
+              <p>
+                Production-focused mobile experiences for Android
+                and iOS with thoughtful user flows.
+              </p>
+
+              <div class="service-tags">
+                <span>Flutter</span>
+                <span>Android</span>
+                <span>iOS</span>
+              </div>
+
+            </article>
+
+            <article class="service-card">
+
+              <div class="service-number">04</div>
+
+              <div class="service-icon">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+              </div>
+
+              <h4>Cybersecurity</h4>
+
+              <p>
+                Security reviews and penetration testing to identify
+                weaknesses before attackers do.
+              </p>
+
+              <div class="service-tags">
+                <span>Security</span>
+                <span>Testing</span>
+                <span>Hardening</span>
+              </div>
+
+            </article>
+
+          </div>
+
+        </section>
+
+
+        <!-- TESTIMONIALS -->
+
+        <section class="content-section">
+
+          <div class="section-heading">
+
+            <div>
+              <p class="section-kicker">CLIENT FEEDBACK</p>
+              <h3>What people say about the work.</h3>
+            </div>
+
+          </div>
+
+          <div class="testimonial-grid">
+
+            <button
+              class="testimonial-card"
+              type="button"
+              data-testimonial-item
+              data-name="Rachel"
+              data-avatar="./assets/images/avatar-2.png"
+              data-message="Denis is a skilled and competent individual. We were very pleased with the work done. He is very concerned about the needs of the client."
+            >
+
+              <div class="quote-mark">“</div>
+
+              <p>
+                Denis is a skilled and competent individual. We were
+                very pleased with the work done...
+              </p>
+
+              <div class="testimonial-person">
+
+                <img
+                  src="./assets/images/avatar-2.png"
+                  alt="Rachel"
+                >
+
+                <div>
+                  <strong>Rachel</strong>
+                  <span>Client</span>
+                </div>
+
+              </div>
+
+            </button>
+
+
+            <button
+              class="testimonial-card"
+              type="button"
+              data-testimonial-item
+              data-name="Raphael"
+              data-avatar="./assets/images/avatar-1.png"
+              data-message="I am really impressed by the quality of services I received from Leteipan. You were right on schedule, charged reasonable prices, were professional and courteous in dealings, and delivered items well before time. I got a good e-commerce site for my products. My revenue has increased because of you and I will definitely use your services again."
+            >
+
+              <div class="quote-mark">“</div>
+
+              <p>
+                I am really impressed by the quality of services
+                I received from Leteipan...
+              </p>
+
+              <div class="testimonial-person">
+
+                <img
+                  src="./assets/images/avatar-1.png"
+                  alt="Raphael"
+                >
+
+                <div>
+                  <strong>Raphael</strong>
+                  <span>Client</span>
+                </div>
+
+              </div>
+
+            </button>
+
+
+            <button
+              class="testimonial-card"
+              type="button"
+              data-testimonial-item
+              data-name="Emily"
+              data-avatar="./assets/images/avatar-3.png"
+              data-message="I just checked the app. WELL DONE. You made my day. Looks really good!"
+            >
+
+              <div class="quote-mark">“</div>
+
+              <p>
+                I just checked the app. WELL DONE. You made my day.
+                Looks really good!
+              </p>
+
+              <div class="testimonial-person">
+
+                <img
+                  src="./assets/images/avatar-3.png"
+                  alt="Emily"
+                >
+
+                <div>
+                  <strong>Emily</strong>
+                  <span>Client</span>
+                </div>
+
+              </div>
+
+            </button>
+
+
+            <button
+              class="testimonial-card"
+              type="button"
+              data-testimonial-item
+              data-name="Henry"
+              data-avatar="./assets/images/avatar-4.png"
+              data-message="I wanted to take a moment to thank you for the services you provided. You have been a pleasure to work with, professional and timely. The only delay in work that we have experienced has been due to our own lack of organization managing our projects, not yours. Job well done and I hope we can continue to grow together."
+            >
+
+              <div class="quote-mark">“</div>
+
+              <p>
+                You have been a pleasure to work with, professional
+                and timely. Job well done...
+              </p>
+
+              <div class="testimonial-person">
+
+                <img
+                  src="./assets/images/avatar-4.png"
+                  alt="Henry"
+                >
+
+                <div>
+                  <strong>Henry</strong>
+                  <span>Client</span>
+                </div>
+
+              </div>
+
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <!-- CLIENTS -->
+
+        <section class="content-section clients-section">
+
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">TRUSTED WORK</p>
+              <h3>Brands and organisations I've worked with.</h3>
+            </div>
+          </div>
+
+          <div class="clients-grid">
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-1-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-2-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-3-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-4-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-5-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+            <div class="client-logo">
+              <img
+                src="./assets/images/logo-6-color.png"
+                alt="Client logo"
+                loading="lazy"
+              >
+            </div>
+
+          </div>
+
+        </section>
+
+      </article>
+
+
+      <!-- =====================================================
+           RESUME
+      ====================================================== -->
+
+      <article
+        class="page resume-page"
+        data-page="resume"
+      >
+
+        <header class="page-header">
+
+          <p class="section-kicker">BACKGROUND</p>
+
+          <h2>Resume</h2>
+
+          <p>
+            A snapshot of my education, practical experience and
+            technical strengths.
+          </p>
+
+        </header>
+
+
+        <div class="resume-grid">
+
+          <!-- EDUCATION -->
+
+          <section class="resume-section">
+
+            <div class="resume-section-title">
+
+              <span class="section-icon">
+                <ion-icon name="school-outline"></ion-icon>
+              </span>
+
+              <div>
+                <p class="section-kicker">EDUCATION</p>
+                <h3>Learning & foundations</h3>
+              </div>
+
+            </div>
+
+            <div class="timeline">
+
+              <div class="timeline-item">
+
+                <span class="timeline-date">
+                  2023 — Present
+                </span>
+
+                <h4>ALX — Software Engineering</h4>
+
                 <p>
-                  Denis was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
+                  A practical software engineering programme focused
+                  on problem solving, software development and
+                  professional engineering practices.
                 </p>
+
+              </div>
+
+              <div class="timeline-item">
+
+                <span class="timeline-date">
+                  2021 — 2023
+                </span>
+
+                <h4>Nairobi Technical Training Institute</h4>
+
+                <p>
+                  Certificate in Information Technology.
+                </p>
+
+              </div>
+
+              <div class="timeline-item">
+
+                <span class="timeline-date">
+                  2014 — 2017
+                </span>
+
+                <h4>Ikombe High School</h4>
+
+                <p>
+                  Certificate of Secondary Education.
+                </p>
+
+              </div>
+
+            </div>
+
+          </section>
+
+
+          <!-- EXPERIENCE -->
+
+          <section class="resume-section">
+
+            <div class="resume-section-title">
+
+              <span class="section-icon">
+                <ion-icon name="briefcase-outline"></ion-icon>
+              </span>
+
+              <div>
+                <p class="section-kicker">EXPERIENCE</p>
+                <h3>Building & solving</h3>
+              </div>
+
+            </div>
+
+            <div class="timeline">
+
+              <div class="timeline-item">
+
+                <span class="timeline-date">
+                  2023 — Present
+                </span>
+
+                <h4>Software Engineering Projects</h4>
+
+                <p>
+                  Building digital products and providing software
+                  solutions for businesses and brands across web,
+                  mobile and backend systems.
+                </p>
+
+              </div>
+
+              <div class="timeline-item">
+
+                <span class="timeline-date">
+                  2022 — 2023
+                </span>
+
+                <h4>Technical Support</h4>
+
+                <p>
+                  ICT attachment at the Kajiado County Government
+                  ICT headquarters, supporting technology operations
+                  and end users.
+                </p>
+
               </div>
 
             </div>
@@ -411,517 +988,771 @@
         </div>
 
 
-        <!--
-          - clients
-        -->
+        <!-- SKILLS -->
 
-        <section class="clients">
+        <section class="skills-section">
 
-          <h3 class="h3 clients-title">Clients</h3>
+          <div class="section-heading">
 
-          <ul class="clients-list has-scrollbar">
+            <div>
+              <p class="section-kicker">TECH STACK</p>
+              <h3>Tools I use to build.</h3>
+            </div>
 
-            <li class="clients-item">
-                <img src="./assets/images/logo-1-color.png" alt="client logo" style="width:70%">
-            </li>
+          </div>
 
-            <li class="clients-item">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-            </li>
+          <div class="skills-grid">
 
-            <li class="clients-item">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-            </li>
+            <div class="skill-card">
 
-            <li class="clients-item">
-              
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              <div class="skill-card-icon">
+                <ion-icon name="layers-outline"></ion-icon>
+              </div>
 
-            </li>
+              <h4>Frontend</h4>
 
-            <li class="clients-item">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              
-            </li>
+              <div class="tag-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Angular</span>
+                <span>Next.js</span>
+                <span>React</span>
+              </div>
 
-            <li class="clients-item">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-            </li>
+            </div>
 
-          </ul>
+
+            <div class="skill-card">
+
+              <div class="skill-card-icon">
+                <ion-icon name="server-outline"></ion-icon>
+              </div>
+
+              <h4>Backend</h4>
+
+              <div class="tag-list">
+                <span>Node.js</span>
+                <span>NestJS</span>
+                <span>Spring Boot</span>
+                <span>REST APIs</span>
+                <span>PostgreSQL</span>
+              </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+              <div class="skill-card-icon">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+
+              <h4>Mobile</h4>
+
+              <div class="tag-list">
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>Android</span>
+                <span>iOS</span>
+              </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+              <div class="skill-card-icon">
+                <ion-icon name="shield-checkmark-outline"></ion-icon>
+              </div>
+
+              <h4>Security</h4>
+
+              <div class="tag-list">
+                <span>Penetration Testing</span>
+                <span>API Security</span>
+                <span>Access Control</span>
+                <span>Security Reviews</span>
+              </div>
+
+            </div>
+
+          </div>
 
         </section>
 
       </article>
 
 
+      <!-- =====================================================
+           PORTFOLIO
+      ====================================================== -->
 
+      <article
+        class="page portfolio-page"
+        data-page="portfolio"
+      >
 
+        <header class="page-header">
 
-      <!--
-        - #RESUME
-      -->
+          <p class="section-kicker">SELECTED WORK</p>
 
-      <article class="resume" data-page="resume">
+          <h2>Portfolio</h2>
 
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
+          <p>
+            A selection of websites, applications and software
+            projects I've worked on.
+          </p>
+
         </header>
 
-        <section class="timeline">
 
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Alx,  Software engineering</h4>
-
-              <span>2023 - Present</span>
-
-              <p class="timeline-text">
-                A responsive and agile program, training learners in skills that will remain future-proof. it strive to ensure that each individual is empowered to be their most exceptional self through the power of opportunity. By making this as accessible as they can, it help their learners reveal the unknown value that lies within them.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Nairobi technical training institute</h4>
-
-              <span>2021— 2023</span>
-
-              <p class="timeline-text">
-                Certificate in Information Technology 
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Ikombe High School</h4>
-
-              <span>2014 — 2017</span>
-
-              <p class="timeline-text">
-                Certificate of secondary education 
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Building projects</h4>
-
-              <span>2023 — Present</span>
-
-              <p class="timeline-text">
-                Constantly engaged in Building project and providing solutions for businesses and Brands.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Tech Support</h4>
-
-              <span>2022 — 2023</span>
-
-              <p class="timeline-text">
-                  
-                I was attached to Kajiado County Government ICT headquarter for a period of 3 months.
-
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Web development</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">UI/UX design</h5>
-                <data value="70">70%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Penetration testing</h5>
-                <data value="90">40%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 40%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">WordPress</h5>
-                <data value="50">50%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-
-
-
-
-
-      <!--
-        - #PORTFOLIO
-      -->
-
-
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
+        <!-- FILTER -->
+
+        <div class="portfolio-toolbar">
+
+          <div
+            class="filter-list"
+            role="tablist"
+            aria-label="Portfolio categories"
+          >
+
+            <button
+              class="filter-btn active"
+              type="button"
+              data-filter-btn="all"
+            >
+              All
             </button>
 
-            <ul class="select-list">
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter-btn="web development"
+            >
+              Web Development
+            </button>
 
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter-btn="web design"
+            >
+              Web Design
+            </button>
 
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
+            <button
+              class="filter-btn"
+              type="button"
+              data-filter-btn="applications"
+            >
+              Applications
+            </button>
 
           </div>
 
-          <ul class="project-list">
+          <span class="project-count" id="project-count">
+            9 projects
+          </span>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+        </div>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
 
-                  <img src="./assets/images/Project-1.png" alt="Snl" loading="lazy">
-                </figure>
+        <!-- PROJECTS -->
 
-                <h3 class="project-title">SnL</h3>
+        <div class="projects-grid">
 
-                <p class="project-category">Web development</p>
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web development"
+          >
 
-              </a>
-            </li>
+            <div class="project-image">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+              <img
+                src="./assets/images/Project-1.png"
+                alt="SnL project"
+                loading="lazy"
+              >
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <span class="project-overlay">
+                Web Development
+              </span>
 
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
-                </figure>
+            </div>
 
-                <h3 class="project-title">Orizon</h3>
+            <div class="project-content">
 
-                <p class="project-category">Web development</p>
+              <div class="project-index">01</div>
 
-              </a>
-            </li>
+              <h3>SnL</h3>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
+              <p>
+                Web development project focused on delivering a
+                polished digital experience.
+              </p>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <div class="project-meta">
+                <span>Web</span>
+                <span>Development</span>
+              </div>
 
-                  <img src="./assets/images/project-3.jpg" alt="jenga" loading="lazy">
-                </figure>
+            </div>
 
-                <h3 class="project-title">Jenga</h3>
+          </article>
 
-                <p class="project-category">Web design</p>
 
-              </a>
-            </li>
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web development"
+          >
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
+            <div class="project-image">
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <img
+                src="./assets/images/project-2.png"
+                alt="Orizon project"
+                loading="lazy"
+              >
 
-                  <img src="./assets/images/Uber-clone.png" alt="uber-clone" loading="lazy">
-                </figure>
+              <span class="project-overlay">
+                Web Development
+              </span>
 
-                <h3 class="project-title">Uber clone</h3>
+            </div>
 
-                <p class="project-category">Applications</p>
+            <div class="project-content">
 
-              </a>
-            </li>
+              <div class="project-index">02</div>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
+              <h3>Orizon</h3>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <p>
+                Modern website implementation with a focus on
+                structure, responsiveness and usability.
+              </p>
 
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
+              <div class="project-meta">
+                <span>Web</span>
+                <span>Responsive</span>
+              </div>
 
-                <h3 class="project-title">DSM.</h3>
+            </div>
 
-                <p class="project-category">Web design</p>
+          </article>
 
-              </a>
-            </li>
 
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web design"
+          >
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+            <div class="project-image">
 
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
+              <img
+                src="./assets/images/project-3.jpg"
+                alt="Jenga project"
+                loading="lazy"
+              >
 
-                <h3 class="project-title">MetaSpark</h3>
+              <span class="project-overlay">
+                Web Design
+              </span>
 
-                <p class="project-category">Web design</p>
+            </div>
 
-              </a>
-            </li>
+            <div class="project-content">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+              <div class="project-index">03</div>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <h3>Jenga</h3>
 
-                  <img src="./assets/images/Project-7.jpg" alt="Safari" loading="lazy">
-                </figure>
+              <p>
+                Interface design focused on hierarchy, clarity and
+                user experience.
+              </p>
 
-                <h3 class="project-title">Safari</h3>
+              <div class="project-meta">
+                <span>UI/UX</span>
+                <span>Design</span>
+              </div>
 
-                <p class="project-category">Web development</p>
+            </div>
 
-              </a>
-            </li>
+          </article>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="applications"
+          >
 
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
+            <div class="project-image">
 
-                <h3 class="project-title">Task Manager</h3>
+              <img
+                src="./assets/images/Uber-clone.png"
+                alt="Ride application project"
+                loading="lazy"
+              >
 
-                <p class="project-category">Applications</p>
+              <span class="project-overlay">
+                Application
+              </span>
 
-              </a>
-            </li>
+            </div>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+            <div class="project-content">
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+              <div class="project-index">04</div>
 
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
-                </figure>
+              <h3>Ride Application</h3>
 
-                <h3 class="project-title">Arrival</h3>
+              <p>
+                Mobile application concept inspired by on-demand
+                transportation workflows.
+              </p>
 
-                <p class="project-category">Web development</p>
+              <div class="project-meta">
+                <span>Mobile</span>
+                <span>Application</span>
+              </div>
 
-              </a>
-            </li>
+            </div>
 
-          </ul>
+          </article>
 
-        </section>
+
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web design"
+          >
+
+            <div class="project-image">
+
+              <img
+                src="./assets/images/project-5.png"
+                alt="DSM project"
+                loading="lazy"
+              >
+
+              <span class="project-overlay">
+                Web Design
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-index">05</div>
+
+              <h3>DSM.</h3>
+
+              <p>
+                Visual interface work with a focus on contemporary
+                presentation and strong layout hierarchy.
+              </p>
+
+              <div class="project-meta">
+                <span>UI</span>
+                <span>Web Design</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web design"
+          >
+
+            <div class="project-image">
+
+              <img
+                src="./assets/images/project-6.png"
+                alt="MetaSpark project"
+                loading="lazy"
+              >
+
+              <span class="project-overlay">
+                Web Design
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-index">06</div>
+
+              <h3>MetaSpark</h3>
+
+              <p>
+                Creative website interface designed around strong
+                visual communication.
+              </p>
+
+              <div class="project-meta">
+                <span>UI/UX</span>
+                <span>Web</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web development"
+          >
+
+            <div class="project-image">
+
+              <img
+                src="./assets/images/Project-7.jpg"
+                alt="Safari project"
+                loading="lazy"
+              >
+
+              <span class="project-overlay">
+                Web Development
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-index">07</div>
+
+              <h3>Safari</h3>
+
+              <p>
+                Website development project combining content,
+                usability and responsive presentation.
+              </p>
+
+              <div class="project-meta">
+                <span>Website</span>
+                <span>Development</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="applications"
+          >
+
+            <div class="project-image">
+
+              <img
+                src="./assets/images/project-8.jpg"
+                alt="Task Manager project"
+                loading="lazy"
+              >
+
+              <span class="project-overlay">
+                Application
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-index">08</div>
+
+              <h3>Task Manager</h3>
+
+              <p>
+                Productivity application concept for managing tasks
+                and everyday workflows.
+              </p>
+
+              <div class="project-meta">
+                <span>App</span>
+                <span>Productivity</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article
+            class="project-card"
+            data-filter-item
+            data-category="web development"
+          >
+
+            <div class="project-image">
+
+              <img
+                src="./assets/images/project-9.png"
+                alt="Arrival project"
+                loading="lazy"
+              >
+
+              <span class="project-overlay">
+                Web Development
+              </span>
+
+            </div>
+
+            <div class="project-content">
+
+              <div class="project-index">09</div>
+
+              <h3>Arrival</h3>
+
+              <p>
+                Responsive web implementation built around clear
+                information architecture and usability.
+              </p>
+
+              <div class="project-meta">
+                <span>Web</span>
+                <span>Development</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
 
       </article>
 
 
+      <!-- =====================================================
+           CONTACT
+      ====================================================== -->
 
+      <article
+        class="page contact-page"
+        data-page="contact"
+      >
 
-      <!--
-        - #BLOG
-      -->
+        <header class="page-header">
 
+          <p class="section-kicker">GET IN TOUCH</p>
 
+          <h2>Let's build something useful.</h2>
 
+          <p>
+            Have a product idea, an existing system that needs
+            improvement, or a technical problem that needs solving?
+            Send me a message.
+          </p>
 
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.488935164124!2d36.95581647765093!3d-1.479103435872831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f9fba4bd39055%3A0x4ea6ab0f72b61069!2sKitengela%20Mall!5e0!3m2!1sen!2ske!4v1705755206236!5m2!1sen!2ske" 
-              width="400" height="300" loading="lazy"></iframe>
 
-          </figure>
-        </section>
+        <div class="contact-layout">
 
-        <section class="contact-form">
+          <!-- MAP / CONTACT INFO -->
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <section class="contact-side">
 
-                    <form action="https://formspree.io/f/moqgjdwv" method="POST"
- class="form" data-form>
+            <div class="map-card">
 
-            <div class="input-wrapper">
-              <input type="hidden" name="redirect" value="https://leteipan.vercel.app">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.488935164124!2d36.95581647765093!3d-1.479103435872831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f9fba4bd39055%3A0x4ea6ab0f72b61069!2sKitengela%20Mall!5e0!3m2!1sen!2ske!4v1705755206236!5m2!1sen!2ske"
+                title="Map showing Kitengela, Kenya"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
 
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <div class="map-caption">
+                <ion-icon name="location-outline"></ion-icon>
+                <span>Based in Kenya · Available remotely</span>
+              </div>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
+            <div class="direct-contact">
 
-  </form>
-        </section>
+              <a
+                href="mailto:denisleteipan45@gmail.com"
+                class="direct-contact-card"
+              >
+                <span class="direct-icon">
+                  <ion-icon name="mail-outline"></ion-icon>
+                </span>
+
+                <span>
+                  <small>Email</small>
+                  <strong>denisleteipan45@gmail.com</strong>
+                </span>
+
+                <ion-icon
+                  name="arrow-up-outline"
+                  class="contact-arrow"
+                ></ion-icon>
+              </a>
+
+
+              <a
+                href="tel:+254713298398"
+                class="direct-contact-card"
+              >
+                <span class="direct-icon">
+                  <ion-icon name="call-outline"></ion-icon>
+                </span>
+
+                <span>
+                  <small>Phone</small>
+                  <strong>+254 713 298 398</strong>
+                </span>
+
+                <ion-icon
+                  name="arrow-up-outline"
+                  class="contact-arrow"
+                ></ion-icon>
+              </a>
+
+            </div>
+
+          </section>
+
+
+          <!-- FORM -->
+
+          <section class="form-card">
+
+            <div class="form-header">
+
+              <div>
+                <p class="section-kicker">SEND A MESSAGE</p>
+                <h3>Tell me about the problem.</h3>
+              </div>
+
+              <span class="form-badge">
+                <span></span>
+                Secure form
+              </span>
+
+            </div>
+
+            <form
+              action="https://formspree.io/f/moqgjdwv"
+              method="POST"
+              class="contact-form"
+              id="contact-form"
+            >
+
+              <input
+                type="hidden"
+                name="redirect"
+                value="https://leteipan.vercel.app"
+              >
+
+              <div class="honeypot" aria-hidden="true">
+                <label>
+                  Do not fill this out
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    tabindex="-1"
+                    autocomplete="off"
+                  >
+                </label>
+              </div>
+
+
+              <div class="form-grid">
+
+                <div class="field-group">
+
+                  <label for="fullname">
+                    Full name
+                  </label>
+
+                  <input
+                    id="fullname"
+                    type="text"
+                    name="fullname"
+                    placeholder="Your name"
+                    autocomplete="name"
+                    required
+                    data-form-input
+                  >
+
+                </div>
+
+
+                <div class="field-group">
+
+                  <label for="email">
+                    Email address
+                  </label>
+
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                    data-form-input
+                  >
+
+                </div>
+
+              </div>
+
+
+              <div class="field-group">
+
+                <label for="message">
+                  Message
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your project, problem or idea..."
+                  required
+                  data-form-input
+                ></textarea>
+
+              </div>
+
+
+              <button
+                class="btn btn-primary form-submit"
+                type="submit"
+                id="form-submit"
+                disabled
+              >
+
+                <ion-icon name="paper-plane-outline"></ion-icon>
+
+                <span>Send message</span>
+
+              </button>
+
+              <p class="form-note">
+                Your information is only used to respond to your enquiry.
+              </p>
+
+            </form>
+
+          </section>
+
+        </div>
 
       </article>
 
@@ -930,47 +1761,87 @@
   </main>
 
 
+  <!-- =========================================================
+       TESTIMONIAL MODAL
+  ========================================================== -->
+
+  <div
+    class="modal-container"
+    data-modal-container
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-overlay"
+      data-overlay
+    ></div>
+
+    <section
+      class="testimonial-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+
+      <button
+        type="button"
+        class="modal-close"
+        data-modal-close-btn
+        aria-label="Close testimonial"
+      >
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
 
 
+      <div class="modal-person">
+
+        <img
+          src="./assets/images/avatar-1.png"
+          alt=""
+          id="modal-avatar"
+        >
+
+        <div>
+          <p class="section-kicker">CLIENT FEEDBACK</p>
+          <h3 id="modal-title">Client</h3>
+        </div>
+
+      </div>
 
 
-  <!--
-    - custom js link
-  -->
+      <div class="modal-quote">
+        <span>“</span>
+
+        <p id="modal-message">
+          Client testimonial.
+        </p>
+      </div>
+
+    </section>
+
+  </div>
+
+
+  <!-- =========================================================
+       ICONS
+  ========================================================== -->
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+  ></script>
+
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+  ></script>
+
+
+  <!-- =========================================================
+       SCRIPT
+  ========================================================== -->
+
   <script src="./assets/js/script.js"></script>
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script type="text/javascript" charset="utf-8">
-var icon = document.getElementById("icon");
-if (localStorage.getItem("theme") == null) {
-localStorage.setItem("theme", "light");
-}
-let localData = localStorage.getItem("theme");
-if (localData == "light") {
-icon.src = "assets/images/sun.png";
-document.body.classList.remove("light-theme")
-} else if (localData == "dark") {
-icon.src = "assets/images/moon.png";
-document.body.classList.add("light-theme")
-}
-icon.onclick = function() {
-document.body.classList.toggle("light-theme");
-if (document.body.classList.contains("light-theme")) {
-icon.src = "assets/images/moon.png";
-localStorage.setItem("theme", "dark");
-} else {
-icon.src = "assets/images/sun.png";
-localStorage.setItem("theme", "light");
-}
-
-}
-
-  </script>
-
 </body>
-
 </html>
